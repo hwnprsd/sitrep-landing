@@ -8,7 +8,7 @@
   (function preloader() {
     const el = $('#preloader');
     if (!el) return;
-    if (reduce || sessionStorage.getItem('sitrep-seen')) { el.remove(); return; }
+    if (reduce) { el.remove(); return; }
     const cell = 96;
     const cols = Math.ceil(window.innerWidth / cell), rows = Math.ceil(window.innerHeight / cell);
     el.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
@@ -18,7 +18,7 @@
     document.body.classList.add('is-locked');
     cells.sort(() => Math.random() - 0.5);
     cells.forEach((s, i) => setTimeout(() => s.classList.add('is-out'), 120 + i * (700 / cells.length)));
-    setTimeout(() => { el.remove(); document.body.classList.remove('is-locked'); try { sessionStorage.setItem('sitrep-seen', '1'); } catch (e) {} }, 1100);
+    setTimeout(() => { el.remove(); document.body.classList.remove('is-locked'); }, 1100);
   })();
 
   /* ---------- nav ---------- */
