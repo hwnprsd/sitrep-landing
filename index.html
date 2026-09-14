@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sitrep. Investment research graded by the market.</title>
+  <meta name="description" content="Sitrep is an AI-native operating system for investment teams. Agents research, cite every number to its source, and every call is graded against the market after the fact. The team decides.">
+  <meta property="og:title" content="Sitrep. Investment research graded by the market.">
+  <meta property="og:description" content="Cited research, precedent evidence and thesis tracking for investment teams. Built to disagree. Graded by the market.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/logo/mark-on-light.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="preloader" id="preloader" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a class="brand-sm" href="#top" style="display:none"><img src="assets/logo/wordmark-on-light.svg" alt="Sitrep"></a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#top" class="is-active">&lt;Home&gt;</a>
+    <a href="#product">Product</a>
+    <a href="#method">Method</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#research">Research</a>
+    <a href="#changelog">Changelog <span class="tag">3</span></a>
+  </nav>
+  <a class="nav-cta" href="mailto:hello@sitrep.so?subject=Sitrep%20access">
+    <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M4 2h6v6"/></svg>
+    Talk to us
+  </a>
+  <button class="nav-burger" id="burger" aria-label="Menu" aria-expanded="false">
+    <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h18M2 11h18M2 16h18"/></svg>
+  </button>
+</header>
+<div class="nav-menu" id="navMenu">
+  <a href="#product">Product</a><a href="#method">Method</a><a href="#pricing">Pricing</a><a href="#research">Research</a><a href="#changelog">Changelog</a><a href="mailto:hello@sitrep.so">Talk to us</a>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-band">
+    <div class="cells" id="heroCells"></div>
+    <div class="container">
+      <a class="brand" href="#top">
+        <img src="assets/logo/wordmark-on-dark.svg" alt="Sitrep">
+        <span class="ver">v0.1-beta</span>
+      </a>
+      <span class="scroll-hint">Scroll for more
+        <svg viewBox="0 0 10 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 0v11M1 7l4 4 4-4"/></svg>
+      </span>
+    </div>
+  </div>
+
+  <div class="hero-main">
+    <div class="container">
+      <div class="hero-top">
+        <h1 class="h1">
+          Investment research<br>
+          <span class="pixel-line"><span class="pixel">[graded]</span><span class="cursor"></span></span><br>
+          by the market.
+        </h1>
+        <div class="hero-aside">
+          <div class="trust">
+            <span class="marks"><span><img src="assets/logo/mark-on-dark.svg" alt=""></span><span><img src="assets/logo/mark-on-dark.svg" alt=""></span><span><img src="assets/logo/mark-on-dark.svg" alt=""></span></span>
+            <span>Design partner <b>YES Securities</b></span>
+            <span class="sep"></span>
+            <span class="count"><span class="dot"></span><span><b>877K</b> events measured</span></span>
+          </div>
+          <p class="lead">Sitrep is an AI-native operating system for investment teams. Agents research at 100 times the speed of an analyst, cite every number to its source, and every call is scored when the market answers. The team decides.</p>
+          <div class="hero-ctas">
+            <a class="btn" href="mailto:hello@sitrep.so?subject=Sitrep%20access">Request access</a>
+            <a class="btn btn--ghost" href="https://research.sitrep.so" target="_blank" rel="noopener">Read the research</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="logo-strip" aria-label="Data sources">
+        <div><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 17V8M8 17V3M13 17v-6M18 17V6"/></svg>BSE filings</div>
+        <div><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 14l5-6 4 4 7-8"/></svg>NSE prices</div>
+        <div><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="10" r="7"/><path d="M3 10h14M10 3c3 3 3 11 0 14M10 3c-3 3-3 11 0 14"/></svg>GDELT</div>
+        <div><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 4h14v12H3zM6 8h8M6 11h6"/></svg>Google News</div>
+        <div><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 16L17 4M3 4h6v6"/></svg>IIM-A factors</div>
+        <div><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12c3-8 5 8 8 0s5 8 8 0"/></svg>India VIX</div>
+      </div>
+
+      <div class="positioning dots" aria-hidden="true">
+        <div class="track">
+          <span><i>···</i> <i>&gt;</i> Agents research <i>→</i> the team <span class="box"></span><span class="box"></span> decides <i>&lt;</i> <i>···</i></span>
+          <span><i>···</i> <i>&gt;</i> Every number <i>→</i> cited to <span class="box"></span><span class="box"></span> its source <i>&lt;</i> <i>···</i></span>
+          <span><i>···</i> <i>&gt;</i> Agents research <i>→</i> the team <span class="box"></span><span class="box"></span> decides <i>&lt;</i> <i>···</i></span>
+          <span><i>···</i> <i>&gt;</i> Every number <i>→</i> cited to <span class="box"></span><span class="box"></span> its source <i>&lt;</i> <i>···</i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 KEY VALUE ============ -->
+<section class="section" id="product">
+  <div class="container">
+    <div class="section-label"><span class="num"><b>[N.01</b><i>/11]</i></span><span class="dash"></span><span>&gt; What it does</span><span class="rule"></span></div>
+    <div class="heading-row reveal">
+      <h2 class="h2">Agents do the research.<br>The team makes the decisions.</h2>
+      <a class="btn" href="mailto:hello@sitrep.so?subject=Sitrep%20access">Request access</a>
+    </div>
+    <div class="value-grid">
+      <article class="value-card reveal">
+        <span class="idx"><i>//</i> 001</span>
+        <div class="art">
+          <svg viewBox="0 0 160 160" fill="none" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round">
+            <path d="M40 92c0-14 18-24 40-24s40 10 40 24-18 24-40 24-40-10-40-24z"/>
+            <path d="M40 92v22c0 14 18 24 40 24s40-10 40-24V92"/>
+            <path d="M40 114c0 14 18 24 40 24s40-10 40-24"/>
+            <path d="M52 52l28-16 28 16-28 16z"/><path d="M52 52v14l28 16 28-16V52"/><path d="M80 68v14"/>
+          </svg>
+        </div>
+        <h3 class="h3">Cited research</h3>
+        <p class="body">Agents read filings, transcripts, prices and the team's own documents, and return writeups with every number cited to the document it was read from.</p>
+        <span class="tag mono-12">Numbers from the data, never a model</span>
+      </article>
+      <article class="value-card reveal">
+        <span class="idx"><i>//</i> 002</span>
+        <div class="art">
+          <svg viewBox="0 0 160 160" fill="none" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round">
+            <path d="M30 70l50-28 50 28-50 28z"/><path d="M30 70v10l50 28 50-28V70"/>
+            <path d="M30 92v10l50 28 50-28V92"/><path d="M30 114v10l50 28 50-28v-10"/>
+            <path d="M80 98v54"/>
+          </svg>
+        </div>
+        <h3 class="h3">Precedent evidence</h3>
+        <p class="body">For any news item, the similar past events and what each did to the stock, its sector and the market at +1, +3, +5 and +10 days. Cases that went the other way are shown, not filtered.</p>
+        <span class="tag mono-12">Shows the cases that disagree</span>
+      </article>
+      <article class="value-card reveal">
+        <span class="idx"><i>//</i> 003</span>
+        <div class="art">
+          <svg viewBox="0 0 160 160" fill="none" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round">
+            <path d="M80 28l14 30 32 4-24 22 6 32-28-16-28 16 6-32-24-22 32-4z"/>
+            <path d="M80 28v8l12 26 28 4M52 62l24 22-6 28M80 116l24 14"/>
+            <path d="M80 36l-12 26-28 4 24 22-6 28 22-12"/>
+          </svg>
+        </div>
+        <h3 class="h3">Thesis tracking</h3>
+        <p class="body">Theses are versioned, drift is measured, and every call is scored when the window closes and the market answers. The record is the rationale.</p>
+        <span class="tag mono-12">Graded against the market</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 PERFORMANCE ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-label"><span class="num"><b>[N.02</b><i>/11]</i></span><span class="dash"></span><span>&gt; The corpus</span><span class="rule"></span></div>
+    <div class="perf-top">
+      <div class="heading reveal">
+        <h2 class="h2">Precedents in seconds.<br>Not a week of tabs.</h2>
+        <a class="btn" href="mailto:hello@sitrep.so?subject=Sitrep%20access">Request access</a>
+      </div>
+      <div class="stats reveal">
+        <div><div class="n">877,067</div><div class="l">Measured events</div></div>
+        <div><div class="n">150,045</div><div class="l">Filings with full text</div></div>
+        <div><div class="n">+1 / +3 / +5 / +10</div><div class="l">Day windows, abnormal terms</div></div>
+        <div><div class="n">43 + GDELT</div><div class="l">News feeds, back to 2015</div></div>
+      </div>
+    </div>
+    <div class="chart reveal" id="chart">
+      <svg id="chartSvg" preserveAspectRatio="none"></svg>
+      <div class="legend"><span>Without Sitrep &lt;</span><i></i><span>&gt; With Sitrep</span></div>
+      <div class="axis"><span>0</span><span>100</span><span>200</span><span>300</span><span>400</span><span>500</span><span>600</span><span>700</span><span>800</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 CORE CAPABILITIES ============ -->
+<section class="section section--dark" id="method">
+  <div class="container">
+    <div class="section-label"><span class="num"><b>[N.03</b><i>/11]</i></span><span class="dash"></span><span>&gt; Core layers</span><span class="rule"></span></div>
+    <div class="cap-grid">
+      <div class="cap-left">
+        <div class="cap-list" id="capList">
+          <button class="cap-item is-active" type="button">
+            <div class="tags"><span>Measure</span><span>Precedents</span></div>
+            <div class="row"><span class="t">Evidence layer</span><span class="dl"></span><span class="n">// 001</span></div>
+            <p class="body">Abnormal reactions against sector and market, the move as a multiple of what options implied that day, cap band, regime and base rate. Numbers come from the measurement layer and never from a model.</p>
+          </button>
+          <button class="cap-item" type="button">
+            <div class="tags"><span>Retrieve</span><span>Cite</span></div>
+            <div class="row"><span class="t">Agents</span><span class="dl"></span><span class="n">// 002</span></div>
+            <p class="body">Agents resolve the entity, classify the event and pull the precedents. The one place a model speaks is grounded in the panels in front of you, and its review mode returns challenges to your reading, not answers.</p>
+          </button>
+          <button class="cap-item" type="button">
+            <div class="tags"><span>Desk</span><span>Record</span></div>
+            <div class="row"><span class="t">The desk</span><span class="dl"></span><span class="n">// 003</span></div>
+            <p class="body">Coverage with a morning digest, versioned theses with measured drift, a searchable vault, scheduled watches and dated memos. One file, the whole team, no logins to fight.</p>
+          </button>
+        </div>
+        <h2 class="h2 reveal">Three layers.<br>One desk that answers.</h2>
+      </div>
+      <div class="cap-right">
+        <div class="dots"></div>
+        <div class="diagram">
+          <div class="col">
+            <div class="cap">Inputs</div>
+            <ul>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 2h7l3 3v9H3z"/><path d="M5 8h6M5 11h6"/></svg>Filings</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 4h12M2 8h12M2 12h8"/></svg>News</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 12l4-5 3 3 5-6"/></svg>Prices</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 7h12"/></svg>Positions</li>
+            </ul>
+          </div>
+          <div class="core">
+            <span class="h l"></span><span class="h r"></span>
+            <div class="mark"><img src="assets/logo/mark-on-dark.svg" alt=""></div>
+            <div class="wire"></div>
+          </div>
+          <div class="col">
+            <div class="cap">Contexts</div>
+            <ul>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="8" cy="6" r="3"/><path d="M2 14c1-3 3-4 6-4s5 1 6 4"/></svg>Company</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2"/></svg>Event class</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 10a3 3 0 010-4l2-2a3 3 0 014 4l-1 1M10 6a3 3 0 010 4l-2 2a3 3 0 01-4-4l1-1"/></svg>Sector</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="8" cy="8" r="6"/><path d="M5 9c1 1.5 5 1.5 6 0M6 6h.01M10 6h.01"/></svg>Regime</li>
+            </ul>
+          </div>
+        </div>
+        <div class="signals">
+          <div class="cap">Outputs</div>
+          <div class="row">
+            <i></i>
+            <span title="Precedent list"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 16V4M2 16h14M5 13V8M8 13V6M11 13v-3M14 13V5"/></svg></span>
+            <i class="sm"></i>
+            <span title="Cited writeup"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 2l7 7-7 7-7-7z"/><path d="M9 6v6M6 9h6"/></svg></span>
+            <i class="sm"></i>
+            <span title="Watch"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 12V8a4 4 0 018 0v4l1 2H4zM7 15a2 2 0 004 0"/></svg></span>
+            <i></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cap-bottom">
+      <div>
+        <h3 class="h4">Works with your data</h3>
+        <p class="body">Connect the market data the team already runs on, plus positions, mandates and internal documents. Nothing leaves your tenant.</p>
+        <div class="chip-rows" aria-hidden="true">
+          <div class="chip-row">
+            <span><i></i>BSE</span><span><i></i>NSE</span><span><i></i>GDELT</span><span><i></i>Google News</span><span><i></i>IIM-A</span><span><i></i>India VIX</span><span><i></i>F&amp;O</span>
+            <span><i></i>BSE</span><span><i></i>NSE</span><span><i></i>GDELT</span><span><i></i>Google News</span><span><i></i>IIM-A</span><span><i></i>India VIX</span><span><i></i>F&amp;O</span>
+          </div>
+          <div class="chip-row chip-row--rev">
+            <span><i></i>MCP</span><span><i></i>Claude</span><span><i></i>Cursor</span><span><i></i>Python</span><span><i></i>REST</span><span><i></i>Excel</span><span><i></i>Slack</span>
+            <span><i></i>MCP</span><span><i></i>Claude</span><span><i></i>Cursor</span><span><i></i>Python</span><span><i></i>REST</span><span><i></i>Excel</span><span><i></i>Slack</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="h4">Built to disagree</h3>
+        <p class="body">It surfaces what the data does not support and the risks a team would otherwise miss.</p>
+        <div class="icon"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="3"><rect x="8" y="8" width="40" height="40"/></svg></div>
+      </div>
+      <div>
+        <h3 class="h4">Graded after the fact</h3>
+        <p class="body">Every output is scored when the market answers. The record cannot be rehearsed or backdated.</p>
+        <div class="icon"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="3"><rect x="16" y="16" width="32" height="32"/><path d="M8 40V8h32"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 HOW IT WORKS ============ -->
+<section class="how">
+  <div class="container">
+    <div class="scrolly" id="howScrolly">
+      <div class="sticky">
+        <div class="section-label"><span class="num"><b>[N.04</b><i>/11]</i></span><span class="dash"></span><span>&gt; How it works</span><span class="rule"></span></div>
+        <div class="heading-row">
+          <h2 class="h2">Understand the flow.<br>From news to a graded call.</h2>
+          <a class="btn" href="mailto:hello@sitrep.so?subject=Sitrep%20access">Request access</a>
+        </div>
+        <div class="how-grid" id="howGrid">
+          <article class="how-card is-active">
+            <div class="top"><span class="n"><i>//</i> 001</span><p class="body">From any source: a filing, a wire story, a broker note, a message from the desk.</p></div>
+            <div class="band dots"></div>
+            <div class="bottom"><h3 class="h3">A news item comes in</h3>
+              <div class="art"><svg viewBox="0 0 64 72" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" shape-rendering="crispEdges"><path d="M12 20l20-10 20 10-20 10z"/><path d="M12 20v8l20 10 20-10v-8"/><path d="M12 34v8l20 10 20-10v-8"/><path d="M12 48v8l20 10 20-10v-8"/></svg></div>
+            </div>
+          </article>
+          <article class="how-card">
+            <div class="top"><span class="n"><i>//</i> 002</span><p class="body">Same company first, then the same event class across the sector, matched on the text itself, within your lookback.</p></div>
+            <div class="band dots"></div>
+            <div class="bottom"><h3 class="h3">Agents find the precedents</h3>
+              <div class="art"><svg viewBox="0 0 64 72" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" shape-rendering="crispEdges"><rect x="20" y="24" width="24" height="24"/><path d="M20 24l8-6h24l-8 6M44 24l8-6v24l-8 6"/><path d="M8 36h12M44 36h12M32 8v16M32 48v16"/></svg></div>
+            </div>
+          </article>
+          <article class="how-card">
+            <div class="top"><span class="n"><i>//</i> 003</span><p class="body">Median, range, hit rate stated both ways, and n. The analyst draws the conclusion and seals it with the evidence attached.</p></div>
+            <div class="band dots"></div>
+            <div class="bottom"><h3 class="h3">The desk reads the evidence</h3>
+              <div class="art"><svg viewBox="0 0 64 72" fill="none" stroke="currentColor" stroke-width="2" shape-rendering="crispEdges"><circle cx="20" cy="22" r="6"/><circle cx="36" cy="22" r="6"/><circle cx="28" cy="36" r="6"/><circle cx="44" cy="36" r="6"/><circle cx="20" cy="50" r="6"/><circle cx="36" cy="50" r="6"/></svg></div>
+            </div>
+          </article>
+          <article class="how-card">
+            <div class="top"><span class="n"><i>//</i> 004</span><p class="body">When the window closes the market answers, the thesis is scored, and the record stands as the rationale.</p></div>
+            <div class="band dots"></div>
+            <div class="bottom"><h3 class="h3">Reality grades the call</h3>
+              <div class="art"><svg viewBox="0 0 64 72" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" shape-rendering="crispEdges"><path d="M10 40l16 12 28-28"/><path d="M10 48l16 12 28-28"/><path d="M10 32l16 12 28-28"/></svg></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 INSTALLATION ============ -->
+<section class="install">
+  <div class="container">
+    <div class="scrolly" id="installScrolly">
+      <div class="sticky">
+        <div class="section-label"><span class="num"><b>[N.05</b><i>/11]</i></span><span class="dash"></span><span>&gt; Integration</span><span class="rule"></span></div>
+        <div class="install-grid">
+          <div class="install-left dots">
+            <div class="code-frame">
+              <span class="corner tl"></span><span class="corner tl2"></span><span class="corner tr"></span><span class="corner tr2"></span><span class="corner bl"></span><span class="corner bl2"></span><span class="corner br"></span><span class="corner br2"></span>
+              <div class="code">
+                <div class="bar"><span class="name" id="codeName">sitrep · mcp.json</span>
+                  <button type="button" id="copyBtn"><span>Copy</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="4" y="4" width="7" height="7"/><path d="M8 4V1H1v7h3"/></svg></button>
+                </div>
+<pre data-tab="0" data-name="sitrep · mcp.json"><span class="c">// Add Sitrep to any MCP client: Claude, Cursor, your own agent.</span>
+{
+  <span class="s">"mcpServers"</span>: {
+    <span class="s">"sitrep"</span>: {
+      <span class="s">"url"</span>: <span class="s">"https://mcp.sitrep.so"</span>,
+      <span class="s">"headers"</span>: { <span class="s">"Authorization"</span>: <span class="s">"Bearer $SITREP_API_KEY"</span> }
+    }
+  }
+}
+
+<span class="c">// 14 tools: precedents, base_rates, thesis, watch, memo, vault ...</span>
+<span class="c">// Every number the model quotes carries the panel and the document it came from.</span></pre>
+<pre data-tab="1" data-name="sitrep · desk.py" hidden><span class="k">from</span> sitrep <span class="k">import</span> Desk
+
+desk = <span class="f">Desk</span>(api_key=os.environ[<span class="s">"SITREP_API_KEY"</span>])
+
+<span class="c"># One news item in, the precedents out</span>
+result = <span class="k">await</span> desk.<span class="f">precedents</span>(
+    text=<span class="s">"Tata Motors: JLR wholesale volumes down 11% YoY"</span>,
+    lookback_years=<span class="n">5</span>,
+    n=<span class="n">20</span>,
+)
+
+<span class="k">for</span> case <span class="k">in</span> result.cases:
+    <span class="f">print</span>(case.date, case.headline, case.abnormal_5d, case.vs_implied)
+
+<span class="c"># Summary across the list: median, IQR, hit rate both ways, n</span>
+<span class="f">print</span>(result.summary.median_5d, result.summary.hit_rate, result.summary.n)</pre>
+<pre data-tab="2" data-name="sitrep · rest" hidden><span class="c"># Every panel as JSON, with provenance on every number</span>
+curl -s https://api.sitrep.so/v1/precedents \
+  -H <span class="s">"Authorization: Bearer $SITREP_API_KEY"</span> \
+  -d <span class="s">'{
+    "text": "RBI holds repo at 6.5%, stance unchanged",
+    "subject": "NIFTY",
+    "lookback_years": 8
+  }'</span>
+
+<span class="c"># → { "cases": [...], "summary": { "median_5d": ..., "n": 31 },</span>
+<span class="c">#     "provenance": { "measured_at": "...", "as_of": "..." } }</span></pre>
+              </div>
+            </div>
+          </div>
+          <div class="install-right">
+            <div class="heading">
+              <h2 class="h2">Simple to integrate.<br>Works where you work.</h2>
+              <a class="btn" href="mailto:hello@sitrep.so?subject=Sitrep%20access">Request access</a>
+            </div>
+            <div class="install-tabs" id="installTabs">
+              <button class="install-tab is-active" type="button"><div class="t">MCP</div><p class="body">Fourteen tools inside Claude, Cursor and any MCP client. The model reads the panels; it never invents a number.</p></button>
+              <button class="install-tab" type="button"><div class="t">Python</div><p class="body">A client for notebooks and pipelines. Precedents, base rates and theses as typed objects.</p></button>
+              <button class="install-tab" type="button"><div class="t">REST API</div><p class="body">Every panel as JSON, with provenance on every number and a frozen as-of mode for audits.</p></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 DOCUMENT ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-label"><span class="num"><b>[N.06</b><i>/11]</i></span><span class="dash"></span><span>&gt; Documentation</span><span class="rule"></span></div>
+    <div class="docs-grid">
+      <div class="docs-left reveal">
+        <h2 class="h2">Everything documented.<br>Method, data, results.</h2>
+        <div class="foot">
+          <a class="btn" href="https://research.sitrep.so" target="_blank" rel="noopener">Learn more</a>
+          <p class="lead">Everything you need to check us.</p>
+          <p class="lead">The method, the data and the measured results, with the cases that went the other way left in.</p>
+        </div>
+      </div>
+      <div class="docs-cards">
+        <a class="doc-card reveal" href="https://research.sitrep.so" target="_blank" rel="noopener">
+          <div class="head">
+            <h3 class="h3">The method</h3>
+            <div class="tags"><span>Measurement</span><span>Precedents</span><span>Grading</span></div>
+            <span class="idx"><i>//</i>001</span>
+          </div>
+          <div class="preview dots">
+            <div class="mockdoc"><div class="side"><i></i><i class="b"></i><i></i><i></i><i></i><i></i></div><div class="main"><b></b><i class="w80"></i><i></i><i class="w60"></i><div class="bars"><i style="--h:40%"></i><i style="--h:70%"></i><i style="--h:55%"></i><i style="--h:90%"></i><i style="--h:35%"></i><i style="--h:60%"></i><i style="--h:80%"></i></div><i class="w40"></i></div></div>
+          </div>
+          <div class="foot"><span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>View</span></div>
+        </a>
+        <a class="doc-card reveal" href="https://research.sitrep.so" target="_blank" rel="noopener">
+          <div class="head">
+            <h3 class="h3">The research</h3>
+            <div class="tags"><span>Data</span><span>Findings</span><span>Whitepaper</span></div>
+            <span class="idx"><i>//</i>002</span>
+          </div>
+          <div class="preview dots">
+            <div class="mockdoc"><div class="side"><i></i><i></i><i class="b"></i><i></i><i></i><i></i></div><div class="main"><b></b><i></i><i class="w60"></i><i class="w80"></i><i></i><i class="w40"></i><i class="w80"></i><i class="w60"></i></div></div>
+          </div>
+          <div class="foot"><span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>View</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 INVARIANTS ============ -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-label"><span class="num"><b>[N.07</b><i>/11]</i></span><span class="dash"></span><span>&gt; Invariants</span><span class="rule"></span></div>
+    <div class="carousel-head">
+      <h2 class="h2 reveal">Built to be checked.<br>Seven things that do not move.</h2>
+      <div class="carousel-nav">
+        <button type="button" id="carPrev" aria-label="Previous"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1L3 6l5 5"/></svg></button>
+        <button type="button" id="carNext" aria-label="Next"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 1l5 5-5 5"/></svg></button>
+      </div>
+    </div>
+    <div class="carousel"><div class="track" id="carTrack">
+      <article class="inv-card">
+        <div class="who"><span class="av"><img src="assets/logo/mark-on-dark.svg" alt=""></span><div><div class="name">Two clocks</div><div class="handle">@event_time · @ingestion_time</div></div><span class="x"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="8"/><path d="M11 6v5l3 2"/></svg></span></div>
+        <p class="quote">When it happened and when we learned it are stored separately. A precedent is only what the desk could have known that morning.</p>
+        <div class="when">Invariant 01 · enforced in code</div>
+        <div class="foot"><span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>Read more</span></div>
+      </article>
+      <article class="inv-card is-tile">
+        <div class="grid-bg"></div><div class="glow"></div>
+        <span class="tag">@point_in_time</span>
+        <div class="who"><div><div class="name">Point-in-time membership</div><div class="handle">Index and sector as they stood on the day. No survivorship.</div></div></div>
+      </article>
+      <article class="inv-card">
+        <div class="who"><span class="av"><img src="assets/logo/mark-on-dark.svg" alt=""></span><div><div class="name">Verified at the door</div><div class="handle">@ingestion</div></div><span class="x"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 11l5 5 9-10"/></svg></span></div>
+        <p class="quote">Verification status is set when an item is ingested, not when it is read. An unverified item is shown as unverified.</p>
+        <div class="when">Invariant 03 · enforced in code</div>
+        <div class="foot"><span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>Read more</span></div>
+      </article>
+      <article class="inv-card">
+        <div class="who"><span class="av"><img src="assets/logo/mark-on-dark.svg" alt=""></span><div><div class="name">Numbers from the data</div><div class="handle">@measurement_layer</div></div><span class="x"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 18V4M3 18h16M7 14V9M11 14V6M15 14v-4"/></svg></span></div>
+        <p class="quote">Every number on a panel comes from the measurement layer and never from a model. CI fails the build if a model output reaches a number field.</p>
+        <div class="when">Invariant 06 · CI-enforced</div>
+        <div class="foot"><span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>Read more</span></div>
+      </article>
+      <article class="inv-card is-tile">
+        <div class="grid-bg"></div><div class="glow"></div>
+        <span class="tag">@per_axis</span>
+        <div class="who"><div><div class="name">Grades stored per axis</div><div class="handle">Dated thresholds. A grade can be re-read years later and mean the same thing.</div></div></div>
+      </article>
+      <article class="inv-card">
+        <div class="who"><span class="av"><img src="assets/logo/mark-on-dark.svg" alt=""></span><div><div class="name">No order capability</div><div class="handle">@anywhere</div></div><span class="x"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="8"/><path d="M5 5l12 12"/></svg></span></div>
+        <p class="quote">Nothing in the system can place, route or size an order. There is no target price and no drafted view. The precedent list is the record.</p>
+        <div class="when">Invariant 05 · by design</div>
+        <div class="foot"><span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>Read more</span></div>
+      </article>
+      <article class="inv-card">
+        <div class="who"><span class="av"><img src="assets/logo/mark-on-dark.svg" alt=""></span><div><div class="name">The analyst concludes</div><div class="handle">@the_desk</div></div><span class="x"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="8" r="4"/><path d="M3 19c1-4 4-6 8-6s7 2 8 6"/></svg></span></div>
+        <p class="quote">Sitrep retrieves and measures. The reading, the call and the responsibility stay with the person whose name is on the note.</p>
+        <div class="when">Invariant 07 · the whole product</div>
+        <div class="foot"><span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>Read more</span></div>
+      </article>
+    </div></div>
+  </div>
+</section>
+
+<!-- ============ 08 PRICING ============ -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-label"><span class="num"><b>[N.08</b><i>/11]</i></span><span class="dash"></span><span>&gt; Pricing</span><span class="rule"></span></div>
+    <div class="heading-row reveal">
+      <h2 class="h2">Simple pricing.<br>One seat, one desk.</h2>
+      <div class="toggle" id="billing">
+        <button type="button" class="is-on" data-period="m">Monthly</button>
+        <button type="button" data-period="y">Annually <span class="save">Save 20%</span></button>
+      </div>
+    </div>
+    <div class="price-grid">
+      <article class="price-card reveal">
+        <div class="top">
+          <div class="rule"></div>
+          <div class="name">Analyst</div>
+          <p class="who">For one analyst and their coverage</p>
+          <div class="amount"><span class="n">$<span data-m="160" data-y="133">160</span><i>.00</i></span><span class="per">/month</span></div>
+          <a class="btn btn--wide" href="mailto:hello@sitrep.so?subject=Sitrep%20Analyst">Request access</a>
+        </div>
+        <ul class="feat">
+          <li class="cap">Includes:</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>Precedent lookups, every listed company</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>Cited research writeups</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>Versioned theses, graded</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>Email support</li>
+        </ul>
+      </article>
+      <article class="price-card is-featured reveal">
+        <div class="top">
+          <div class="rule"><span class="pop">Most popular</span></div>
+          <div class="name"><span class="pix">▮</span>Desk</div>
+          <p class="who">For a research desk, five seats and up</p>
+          <div class="amount"><span class="n">$<span data-m="120" data-y="99">120</span><i>.00</i></span><span class="per">/seat /month</span></div>
+          <a class="btn btn--wide" href="mailto:hello@sitrep.so?subject=Sitrep%20Desk">Request access</a>
+        </div>
+        <ul class="feat">
+          <li class="cap">Everything in Analyst, plus:</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>Shared coverage, vault and watches</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>Dated memos and desk notes</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>MCP, Python and REST access</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>Adversarial review mode</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>Priority support</li>
+        </ul>
+      </article>
+      <article class="price-card reveal">
+        <div class="top">
+          <div class="rule"></div>
+          <div class="name">Enterprise</div>
+          <p class="who">For funds running Sitrep on their own portfolio</p>
+          <div class="amount"><span class="n">Custom</span></div>
+          <a class="btn btn--wide" href="mailto:hello@sitrep.so?subject=Sitrep%20Enterprise">Talk to us</a>
+        </div>
+        <ul class="feat">
+          <li class="cap">Everything in Desk, plus:</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>Your positions, mandate and documents</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>Your market data connections</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>Single tenant, read-only access</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>Frozen as-of mode for audit</li>
+          <li><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7l3 3 7-7"/></svg>A forward-deployed engineer</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 CHANGELOG ============ -->
+<section class="section" id="changelog">
+  <div class="container">
+    <div class="section-label"><span class="num"><b>[N.09</b><i>/11]</i></span><span class="dash"></span><span>&gt; Changelog</span><span class="rule"></span></div>
+    <div class="log-grid">
+      <div class="log-left reveal">
+        <h2 class="h2">We ship fast.<br>The record is dated.</h2>
+        <div class="foot">
+          <a class="btn" href="https://research.sitrep.so" target="_blank" rel="noopener">View all</a>
+          <p class="lead">Every change is a dated commit.</p>
+          <p class="lead">What was measured, what moved, and what did not, in the order it happened.</p>
+        </div>
+      </div>
+      <div class="log-right">
+        <div class="log-item reveal">
+          <span class="date">Sep 14, 2026</span>
+          <span class="ico"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 3L2 7l3 4M9 3l3 4-3 4"/></svg></span>
+          <div class="txt"><h3 class="h4">Research whitepaper published</h3><p class="body">The method, the corpus and the measured findings, as a static site at research.sitrep.so. Every claim names its file.</p></div>
+        </div>
+        <div class="log-item reveal">
+          <span class="date">Sep 11, 2026</span>
+          <span class="ico"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 7l3 3 7-7M2 10l3 3"/></svg></span>
+          <div class="txt"><h3 class="h4">Filing boilerplate stripped, retrieval re-measured</h3><p class="body">Covering letters removed from BSE filing bodies. Retrieval improves a little on the hand-checked set, and the number is in the note.</p></div>
+        </div>
+        <div class="log-item reveal">
+          <span class="date">Sep 09, 2026</span>
+          <span class="ico"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 7l3 3 7-7M2 10l3 3"/></svg></span>
+          <div class="txt"><h3 class="h4">Macro mode and the similarity floor</h3><p class="body">460 dated macro events with the Nifty's path after each. Lists drawn across companies now stop at a similarity floor instead of padding.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 RESEARCH ============ -->
+<section class="section" id="research">
+  <div class="container">
+    <div class="section-label"><span class="num"><b>[N.10</b><i>/11]</i></span><span class="dash"></span><span>&gt; Research</span><span class="rule"></span></div>
+    <div class="heading-row reveal">
+      <h2 class="h2">Research notes.<br>Measured, not argued.</h2>
+      <a class="btn" href="https://research.sitrep.so" target="_blank" rel="noopener">Read all</a>
+    </div>
+    <div class="research-grid">
+      <a class="post post--big reveal" href="https://research.sitrep.so" target="_blank" rel="noopener">
+        <div class="txt">
+          <div class="meta"><span class="cat">Retrieval</span><span class="date"><i>//</i> Sep 11, 2026</span></div>
+          <h3 class="h4">Does stripping filing boilerplate improve retrieval? A little.</h3>
+          <p class="body">Covering letters and disclaimers make up a large share of a BSE filing. We removed them, re-embedded, and measured the change on the hand-checked set.</p>
+          <span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>Read more</span>
+        </div>
+        <div class="img"><div class="grid-bg"></div><div class="glow g1"></div><div class="glow g2"></div>
+          <div class="bars"><i style="--h:30%"></i><i style="--h:45%"></i><i style="--h:38%"></i><i style="--h:60%"></i><i style="--h:52%"></i><i style="--h:70%"></i><i class="b" style="--h:82%"></i><i class="b" style="--h:88%"></i><i class="b" style="--h:84%"></i><i class="b" style="--h:95%"></i></div>
+        </div>
+      </a>
+      <div>
+        <a class="post post--small reveal" href="https://research.sitrep.so" target="_blank" rel="noopener">
+          <div class="txt">
+            <div class="meta"><span class="cat">Macro</span><span class="date"><i>//</i> Sep 09, 2026</span></div>
+            <h3 class="h4">460 macro events and the Nifty's path after each</h3>
+            <span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>Read more</span>
+          </div>
+          <div class="img"><div class="grid-bg"></div><div class="glow g2"></div>
+            <div class="bars"><i style="--h:20%"></i><i style="--h:50%"></i><i class="b" style="--h:75%"></i><i style="--h:40%"></i><i style="--h:65%"></i><i class="b" style="--h:90%"></i><i style="--h:35%"></i><i style="--h:55%"></i></div>
+          </div>
+        </a>
+        <a class="post post--small reveal" href="https://research.sitrep.so" target="_blank" rel="noopener">
+          <div class="txt">
+            <div class="meta"><span class="cat">Events</span><span class="date"><i>//</i> Sep 05, 2026</span></div>
+            <h3 class="h4">Cashflow events: sizing what the statements say</h3>
+            <span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>Read more</span>
+          </div>
+          <div class="img"><div class="grid-bg"></div><div class="glow g1"></div>
+            <div class="bars"><i class="b" style="--h:60%"></i><i style="--h:30%"></i><i style="--h:45%"></i><i class="b" style="--h:80%"></i><i style="--h:25%"></i><i style="--h:50%"></i><i class="b" style="--h:70%"></i><i style="--h:40%"></i></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 FAQ ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-label"><span class="num"><b>[N.11</b><i>/11]</i></span><span class="dash"></span><span>&gt; FAQs</span><span class="rule"></span></div>
+    <h2 class="h2 reveal">We have answers.<br>Plain ones.</h2>
+    <div class="faq" id="faq">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span class="n"><i>//</i>001</span><span class="t">Does Sitrep give a view or a target price?</span><span class="pm"><svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg><svg class="minus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10"/></svg></span></button>
+        <div class="faq-a"><div><p class="body">No. Sitrep returns the precedents and the measurement: what similar past events did to the stock, its sector and the market, and the summary across them. The analyst draws the conclusion. There is no drafted view, no target price and no order capability anywhere in the system.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span class="n"><i>//</i>002</span><span class="t">Where do the numbers come from?</span><span class="pm"><svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg><svg class="minus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10"/></svg></span></button>
+        <div class="faq-a"><div><p class="body">From the measurement layer, never from a model. Reactions are measured in abnormal terms against the sector and the market at +1, +3, +5 and +10 days, and as a multiple of what options implied that day. A model may quote a number, and when it does it cites the panel and the document it read it from.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span class="n"><i>//</i>003</span><span class="t">Which markets are covered?</span><span class="pm"><svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg><svg class="minus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10"/></svg></span></button>
+        <div class="faq-a"><div><p class="body">India first. Every NSE-listed company, with BSE filings, adjusted prices, factor data, F&amp;O implied moves and news back to 2015, plus 460 dated macro events for the index itself. Any market with an exchange feed comes next.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span class="n"><i>//</i>004</span><span class="t">Can it work with our own data?</span><span class="pm"><svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg><svg class="minus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10"/></svg></span></button>
+        <div class="faq-a"><div><p class="body">Yes. Sitrep ingests the team's coverage, positions, mandate and internal documents, and connects to the market data you already run on. Access is read-only, revocable, and single tenant on the Enterprise plan. Nothing is used to train a model.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span class="n"><i>//</i>005</span><span class="t">How is it graded?</span><span class="pm"><svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg><svg class="minus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10"/></svg></span></button>
+        <div class="faq-a"><div><p class="body">Every thesis is sealed with its evidence and a window. When the window closes, the market answers and the thesis is scored per axis against dated thresholds. Sitrep's own panels are graded the same way. Nothing can be rehearsed or backdated.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<div class="ticker" aria-hidden="true"><div class="track" id="ticker1"></div></div>
+<section class="cta">
+  <div class="container">
+    <div class="cta-card reveal">
+      <span class="sq tl"></span><span class="sq tr"></span><span class="sq bl"></span><span class="sq br"></span>
+      <span class="kicker">Ask for access</span>
+      <h2 class="h1">Research,<br><span class="pixel">[graded]</span><br>by the market.</h2>
+      <a class="btn" href="mailto:hello@sitrep.so?subject=Sitrep%20access">Request access</a>
+    </div>
+  </div>
+</section>
+<div class="ticker" aria-hidden="true"><div class="track" id="ticker2"></div></div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-left">
+        <div>
+          <h3 class="h3"><span class="at">@</span>Stay in the loop.</h3>
+          <p class="lead">Release notes, research drops and method changes, straight from the builders.</p>
+          <form class="newsletter" action="mailto:hello@sitrep.so" method="post" enctype="text/plain" onsubmit="return false">
+            <input type="email" placeholder="Enter your email" aria-label="Email">
+            <button type="submit" id="joinBtn">Join</button>
+          </form>
+        </div>
+        <div class="wordmark"><img src="assets/logo/wordmark-on-light.svg" alt="Sitrep"></div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-col">
+          <div class="cap">Pages</div>
+          <ul class="two">
+            <li><a href="#top">Home</a></li><li><a href="#product">Product</a></li><li><a href="#method">Method</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#research">Research</a></li><li><a href="#changelog">Changelog</a></li>
+            <li><a href="https://research.sitrep.so" target="_blank" rel="noopener">Whitepaper</a></li><li><a href="mailto:hello@sitrep.so">Contact</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="cap">Follow us</div>
+          <ul class="soc">
+            <li><svg class="ic" viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1h2.3L9.8 6.9 15.8 15h-4.7L7.4 10.2 3.2 15H.9l5.5-6.3L.6 1h4.8l3.3 4.4L12.6 1zm-.8 12.6h1.3L4.9 2.3H3.5l8.3 11.3z"/></svg><span class="dl"></span><a href="#">X</a><svg class="arr" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 10L10 2M4 2h6v6"/></svg></li>
+            <li><svg class="ic" viewBox="0 0 16 16" fill="currentColor"><path d="M3.6 14H1.2V5.3h2.4V14zM2.4 4.1A1.4 1.4 0 112.4 1.3a1.4 1.4 0 010 2.8zM14.8 14h-2.4V9.8c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2V14H7V5.3h2.3v1.2c.3-.6 1.1-1.3 2.3-1.3 2.5 0 2.9 1.6 2.9 3.7V14z"/></svg><span class="dl"></span><a href="#">LinkedIn</a><svg class="arr" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 10L10 2M4 2h6v6"/></svg></li>
+            <li><svg class="ic" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .5a7.5 7.5 0 00-2.4 14.6c.4.1.5-.2.5-.4v-1.3c-2.1.5-2.5-1-2.5-1-.3-.9-.8-1.1-.8-1.1-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.2 1.8.8 2.2.6.1-.5.3-.8.5-1-1.7-.2-3.4-.8-3.4-3.7 0-.8.3-1.5.8-2-.1-.2-.3-1 .1-2 0 0 .6-.2 2.1.8a7 7 0 013.8 0c1.4-1 2.1-.8 2.1-.8.4 1 .2 1.8.1 2 .5.5.8 1.2.8 2 0 2.9-1.8 3.5-3.4 3.7.3.2.5.7.5 1.4v2.1c0 .2.1.5.5.4A7.5 7.5 0 008 .5z"/></svg><span class="dl"></span><a href="#">GitHub</a><svg class="arr" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 10L10 2M4 2h6v6"/></svg></li>
+          </ul>
+        </div>
+        <div class="footer-col span">
+          <div class="cap">Get in touch</div>
+          <ul>
+            <li><a href="mailto:hello@sitrep.so">hello@sitrep.so</a></li>
+            <li>India first. Any market with an exchange feed next.</li>
+            <li>Design partner: YES Securities, Mumbai</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Sitrep 2026</span>
+      <span class="links"><a href="#">Privacy Policy</a><span>/</span><a href="#">Terms of Service</a></span>
+      <span class="made"><img src="assets/logo/mark-on-light.svg" alt=""> Graded by the market.</span>
+    </div>
+  </div>
+</footer>
+
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>
