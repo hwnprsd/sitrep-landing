@@ -63,6 +63,19 @@
       let t = el.textContent;
       while (t.length) { t = t.slice(0, -1); el.textContent = t; await wait(ms); }
     }
+    // reserve the final height so the cycle never shifts the page
+    const h1 = pixel.closest('.h1');
+    const reserve = () => {
+      const keep = pixel.textContent, keepTail = tail.textContent;
+      let max = 0;
+      tail.textContent = tailText;
+      for (const w of words) { pixel.textContent = w; max = Math.max(max, h1.getBoundingClientRect().height); }
+      pixel.textContent = keep; tail.textContent = keepTail;
+      h1.style.minHeight = Math.ceil(max) + 'px';
+      tail.style.minHeight = '';
+    };
+    reserve();
+    window.addEventListener('resize', reserve);
     pixel.textContent = ''; tail.textContent = '';
     preloadDone.then(async () => {
       await wait(150);

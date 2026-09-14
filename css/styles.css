@@ -196,7 +196,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding: 48px 0 64px;
 }
 .hero-top .h1 { max-width: 663px; }
-.hero-top .h1 .pixel-line { display: inline-flex; align-items: center; font-size: 72px; line-height: 1.1; }
+.hero-top .h1 .pixel-line { display: inline-flex; align-items: center; height: 1.1em; vertical-align: top; font-size: 72px; line-height: 1.1; white-space: nowrap; }
 .hero-top .h1 .l2 { display: block; min-height: 1.1em; }
 .hero-top .h1 .cursor { display: inline-block; width: 28px; height: 70px; background: var(--blue); margin-left: 6px; animation: blink 1s steps(2, start) infinite; }
 @keyframes blink { to { visibility: hidden; } }
@@ -389,6 +389,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .mockdoc .main i.w60 { width: 60%; } .mockdoc .main i.w80 { width: 80%; } .mockdoc .main i.w40 { width: 40%; }
 .mockdoc .main .bars { display: flex; align-items: flex-end; gap: 3px; height: 40px; margin-top: 6px; }
 .mockdoc .main .bars i { width: 6px; height: var(--h); background: var(--blue); opacity: .85; }
+
+.doc-card .preview .shot { position: absolute; left: 16px; top: 40px; width: 130%; height: auto; border: 1px solid #333; display: block; }
+.doc-card .preview .shot--paper { border-color: var(--line); width: calc(100% - 32px); }
+.post .img .shot { position: absolute; left: 16px; top: 16px; width: 190%; height: auto; border: 1px solid #333; display: block; }
+.post .img .shot--b { top: 210px; }
+.post--small .img .shot { width: 200%; }
 
 /* ---------- invariants carousel (dark) ---------- */
 .carousel-head { display: flex; align-items: flex-end; justify-content: space-between; }
