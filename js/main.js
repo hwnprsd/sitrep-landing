@@ -4,35 +4,79 @@
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- preloader: pixel dissolve that sweeps from the top-left ---------- */
-  (function preloader() {
+  /* ---------- preloader: blue hold, then a flickering pixel dissolve ---------- */
+  const preloadDone = new Promise(resolve => {
     const el = $('#preloader');
-    if (!el) return;
-    if (reduce) { el.remove(); return; }
+    if (!el) return resolve();
+    if (reduce) { el.remove(); return resolve(); }
     const vw = window.innerWidth, vh = window.innerHeight;
-    const cell = vw < 720 ? 40 : vw < 1200 ? 64 : 96;
+    const cell = vw < 720 ? 40 : vw < 1200 ? 72 : 120;
     const cols = Math.ceil(vw / cell), rows = Math.ceil(vh / cell);
     el.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
     el.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+    const shades = ['#0151AF', '#0B2E5E', '#1A1A1A', '#3D74C2', '#9DB6DC', '#D9E2EF', '#F9EDDD'];
     const cells = [];
     const frag = document.createDocumentFragment();
     for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
       const s = document.createElement('span');
-      // sweep diagonal with jitter, normalised 0..1
-      s._t = ((r + c) / (rows + cols)) * 0.7 + Math.random() * 0.3;
+      // clear time: a loose sweep from the top-left with plenty of scatter
+      s._t = ((r + c) / (rows + cols)) * 0.55 + Math.random() * 0.45;
+      s._flick = 0.25 + Math.random() * 0.2; // how long before clearing it flickers
+      s._next = 0;
       frag.appendChild(s); cells.push(s);
     }
     el.appendChild(frag);
     document.body.classList.add('is-locked');
-    const total = 650, delay = 120;
-    const t0 = performance.now() + delay;
+    const hold = 450, total = 850;
+    const t0 = performance.now() + hold;
     function tick(now) {
       const p = (now - t0) / total;
-      for (const s of cells) if (!s._gone && s._t <= p) { s._gone = true; s.style.visibility = 'hidden'; }
+      for (const s of cells) {
+        if (s._gone) continue;
+        if (s._t <= p) { s._gone = true; s.style.visibility = 'hidden'; continue; }
+        if (p > s._t - s._flick && now >= s._next) {
+          s.style.background = shades[Math.floor(Math.random() * shades.length)];
+          s._next = now + 60 + Math.random() * 90;
+        }
+      }
       if (p < 1) requestAnimationFrame(tick);
-      else { el.remove(); document.body.classList.remove('is-locked'); }
+      else { el.remove(); document.body.classList.remove('is-locked'); resolve(); }
     }
     requestAnimationFrame(tick);
+  });
+
+  /* ---------- hero headline: type in, then rotate the bracketed word ---------- */
+  (function typewriter() {
+    const pixel = $('.hero-top .pixel'), tail = $('.hero-top .l2');
+    if (!pixel || !tail) return;
+    const words = ['[Cursor]', '[Claude Code]', '[Evidence]', '[Precedents]'];
+    const tailText = tail.textContent;
+    if (reduce) return;
+    const glyphs = '_{}[]=>/#\\?^';
+    const rnd = () => glyphs[Math.floor(Math.random() * glyphs.length)];
+    const wait = ms => new Promise(r => setTimeout(r, ms));
+    async function type(el, text, ms) {
+      for (let i = 1; i <= text.length; i++) { el.textContent = text.slice(0, i) + (i < text.length ? rnd() : ''); await wait(ms); }
+      el.textContent = text;
+    }
+    async function erase(el, ms) {
+      let t = el.textContent;
+      while (t.length) { t = t.slice(0, -1); el.textContent = t; await wait(ms); }
+    }
+    pixel.textContent = ''; tail.textContent = '';
+    preloadDone.then(async () => {
+      await wait(150);
+      await type(pixel, words[0], 55);
+      await type(tail, tailText, 32);
+      let i = 0;
+      while (true) {
+        await wait(3200);
+        await erase(pixel, 40);
+        await wait(250);
+        i = (i + 1) % words.length;
+        await type(pixel, words[i], 65);
+      }
+    });
   })();
 
   /* ---------- nav ---------- */
