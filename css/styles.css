@@ -48,7 +48,6 @@ body {
   line-height: 1.3;
   letter-spacing: -0.05em;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 body.is-locked { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
@@ -318,7 +317,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- how it works (scroll-driven) ---------- */
 .how { padding: 0 var(--gutter) 80px; }
-.how .scrolly { height: calc(4 * 450px + 260px); position: relative; }
+.how .scrolly { height: calc(4 * 450px + 200px); position: relative; }
 .how .sticky { position: sticky; top: 0; padding-top: 80px; }
 .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 64px; }
 .how-card { border: 1px solid var(--line); height: 384px; display: flex; flex-direction: column; background: var(--cream); }
@@ -338,15 +337,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- install ---------- */
 .install { padding: 0 var(--gutter) 80px; }
-.install .scrolly { height: calc(3 * 700px + 260px); position: relative; }
+.install .scrolly { height: calc(3 * 700px + 200px); position: relative; }
 .install .sticky { position: sticky; top: 0; padding-top: 80px; }
 .install-grid { display: grid; grid-template-columns: 1fr 1fr; margin-top: 8px; }
-.install-left { height: 720px; padding: 40px; display: flex; align-items: center; }
+.install-left { height: clamp(560px, calc(100vh - 170px), 720px); padding: 40px; display: flex; align-items: center; }
 .code-frame { width: 100%; border: 1px solid var(--line); background: var(--cream); padding: 10px; position: relative; }
 .code-frame .corner { position: absolute; width: 4px; height: 4px; background: var(--ink); }
 .code-frame .corner.tl { top: 3px; left: 3px; } .code-frame .corner.tr { top: 3px; right: 3px; } .code-frame .corner.bl { bottom: 3px; left: 3px; } .code-frame .corner.br { bottom: 3px; right: 3px; }
 .code-frame .corner.tl2 { top: 3px; left: 10px; } .code-frame .corner.tr2 { top: 3px; right: 10px; } .code-frame .corner.bl2 { bottom: 3px; left: 10px; } .code-frame .corner.br2 { bottom: 3px; right: 10px; }
-.code { background: var(--ink); color: #D4D4D4; min-height: 520px; }
+.code { background: var(--ink); color: #D4D4D4; min-height: 440px; }
 .code .bar { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--line-dark); }
 .code .bar .name { font-family: var(--mono); font-size: 14px; font-weight: 500; letter-spacing: -0.04em; color: var(--on-dark); text-transform: uppercase; }
 .code .bar button { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 14px; font-weight: 500; letter-spacing: -0.04em; color: var(--on-dark); }
@@ -354,7 +353,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .code pre { margin: 0; padding: 16px 16px 24px; font-family: var(--mono); font-size: 13px; line-height: 1.55; letter-spacing: -0.01em; white-space: pre-wrap; word-break: break-word; }
 .code pre[hidden] { display: none; }
 .code .k { color: #D2A8FF; } .code .s { color: #C3E88D; } .code .f { color: #82AAFF; } .code .c { color: #7A7A7A; } .code .n { color: #FFCB6B; } .code .p { color: #89DDFF; }
-.install-right { padding: 0 0 0 48px; display: flex; flex-direction: column; justify-content: space-between; height: 720px; }
+.install-right { padding: 0 0 0 48px; display: flex; flex-direction: column; justify-content: space-between; height: clamp(560px, calc(100vh - 170px), 720px); }
 .install-right .heading { display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
 .install-tabs { position: relative; padding-left: 32px; display: flex; flex-direction: column; gap: 24px; }
 .install-tabs::before { content: ""; position: absolute; left: 4px; top: 8px; bottom: 8px; border-left: 1px dashed var(--line); }
