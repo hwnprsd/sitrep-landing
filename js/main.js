@@ -49,7 +49,7 @@
   (function typewriter() {
     const pixel = $('.hero-top .pixel'), tail = $('.hero-top .l2');
     if (!pixel || !tail) return;
-    const words = ['[Cursor]', '[Claude Code]', '[Evidence]', '[Precedents]'];
+    const words = ['[Cursor]', '[Claude Code]', '[Precedents]', '[Base rates]'];
     const tailText = tail.textContent;
     if (reduce) return;
     const glyphs = '_{}[]=>/#\\?^';
@@ -155,12 +155,12 @@
     let seed = 7; const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
     let out = '';
     // vertical guides every 100
-    for (let g = 0; g <= 8; g++) out += `<line x1="${g * W / 8}" y1="0" x2="${g * W / 8}" y2="${H}" stroke="#E1D4C1" stroke-dasharray="2 3"/>`;
+    for (let g = 0; g <= 11; g++) out += `<line x1="${g * W / 11}" y1="0" x2="${g * W / 11}" y2="${H}" stroke="#E1D4C1" stroke-dasharray="2 3"/>`;
     for (let i = 0; i < n; i++) {
       const x = i * bw + 1;
       const t = i / n;
       let h, fill;
-      if (t < 0.5) {
+      if (t < 10 / 11) {
         const env = 0.25 + 0.25 * Math.sin(t * 12) * Math.sin(t * 5 + 1) + 0.1 * rnd();
         h = Math.max(4, env * 0.55 * H); fill = '#E9DAC6';
       } else {
@@ -169,7 +169,7 @@
       }
       out += `<rect x="${x}" y="${H - h}" width="${bw - 2}" height="${h}" fill="${fill}"/>`;
     }
-    out += `<line x1="${W / 2}" y1="0" x2="${W / 2}" y2="${H}" stroke="#0151AF" stroke-dasharray="3 3"/>`;
+    out += `<line x1="${W * 10 / 11}" y1="0" x2="${W * 10 / 11}" y2="${H}" stroke="#0151AF" stroke-dasharray="3 3"/>`;
     out += `<line x1="0" y1="${H}" x2="${W}" y2="${H}" stroke="#E1D4C1"/>`;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     svg.innerHTML = out;

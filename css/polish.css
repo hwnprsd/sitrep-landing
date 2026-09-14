@@ -1,0 +1,132 @@
+/* Sitrep landing: polish pass. Linked after styles.css; every rule here overrides
+   a rule there with the same selector (or a more specific one). One comment per fix,
+   named by section. Findings and the reasoning are in content/polish-notes.md. */
+
+/* ---------- tokens: line contrast ----------
+   Reference draws its 1px lines at #E0E0E0 on white (a 31-step drop). Ours were
+   #E1D4C1 on #F9EDDD (a 24-step drop), which is why the grid read as faint.
+   Dark sections: reference uses #474747 for every rule, the same as the hero grid;
+   ours used #333, so dark-section lines were fainter than the hero grid. */
+:root {
+  --line: #DACBB4;
+  --line-dark: #474747;
+}
+
+/* ---------- textures: dots ----------
+   Light dots: sparser and softer, closer to the reference's 7px cross texture.
+   Dark dots: reference dots are large and soft (5px at 16px pitch, 15-step drop);
+   ours were 2px pin-pricks 38 steps brighter than the panel. */
+.dots {
+  background-color: #F2E5D3;
+  background-image: radial-gradient(#DDCEB8 1px, transparent 1.5px);
+  background-size: 10px 10px;
+}
+.section--dark .dots, .dots--dark {
+  background-color: var(--ink-2);
+  background-image: radial-gradient(#262626 2.5px, transparent 2.6px);
+  background-size: 16px 16px;
+}
+
+/* ---------- mono tags: one padding everywhere ----------
+   Tags varied between 2px and 4px vertical padding and 4px/6px horizontal.
+   Reference tag is 12px mono, 3px 4px, line-height 1.3 (22px tall). */
+.value-card .tag, .doc-card .tags span, .post .meta .cat, .cta-card .kicker,
+.log-item .date, .chart .legend span, .inv-card.is-tile .tag, .toggle .save,
+.price-card .top .rule .pop {
+  padding: 3px 4px;
+  line-height: 1.3;
+}
+
+/* ---------- 01 key value: card art ----------
+   The line drawings occupy ~80px of a 160px box; the reference art is ~110px wide.
+   Scaled visually only, so the card layout does not move. */
+.value-card .art svg { transform: scale(1.25); transform-origin: top left; }
+
+/* ---------- 02 the corpus: stats grid ----------
+   `1fr 1fr` columns have an auto minimum, so the wide nowrap "+1 / +3 / +5 / +10"
+   stretched column 1 to 271px, squeezed column 2 to 201px, wrapped "News feeds,
+   back to 2015" onto two lines and pushed the whole grid 53px wider than its
+   track (which in turn squeezed the heading column). Fixed-size columns, a 480px
+   stats track, and the one long figure a step smaller so it fits its cell. */
+@media (min-width: 1081px) {
+  .perf-top { grid-template-columns: minmax(0, 1fr) 480px; }
+}
+@media (min-width: 721px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.stats > div { min-width: 0; }
+.stats > div:nth-child(3) .n { font-size: 27px; letter-spacing: -0.055em; line-height: 1.42; }
+.stats .l { white-space: nowrap; }
+
+/* ---------- 02 the corpus: chart legend ---------- */
+.chart .legend span { white-space: nowrap; }
+
+/* ---------- 03 core layers: diagram proportions ----------
+   The blue wire (150px) ran straight through the OUTPUTS caption. Reference: columns
+   ~140px from the panel top, a ~100px wire, then air, then the caption and the boxes.
+   Also the wire was a gradient fading to transparent; now a solid line. */
+.diagram .core .wire { height: 100px; background: var(--blue); }
+@media (min-width: 721px) {
+  .diagram { align-items: start; padding-top: 140px; }
+  .signals { top: 470px; bottom: auto; }
+}
+
+/* ---------- 03 core layers: bottom row ----------
+   Icons were 56px at a 3px stroke; reference is ~44px. Chips were 46px tall;
+   reference chips are 40px. */
+.cap-bottom .icon, .cap-bottom .icon svg { width: 44px; height: 44px; }
+.chip-row span { height: 40px; padding: 0 14px; }
+
+/* ---------- 07 invariants: tile card ----------
+   The radial blue glow was the softest thing on a page built from hard 1px lines.
+   Replaced with a solid blue block sitting on the tile's 24px grid. */
+.inv-card.is-tile .glow {
+  width: 96px; height: 96px;
+  right: 30px; top: 24px; bottom: auto;
+  background: var(--blue);
+}
+
+/* ---------- 10 research: image tiles ----------
+   Same problem, worse: two blurred radial glows per tile. Now two lit cells on the
+   32px grid, the same device as the hero band's twinkling cells. */
+.post .img .glow { width: 64px; height: 64px; background: rgba(1, 81, 175, 0.55); }
+.post .img .g1 { left: 64px; top: 64px; right: auto; bottom: auto; }
+.post .img .g2 { left: 192px; top: 32px; right: auto; bottom: auto; width: 32px; height: 32px; }
+
+/* ---------- 11 faq: row number ----------
+   `.n` is a flex row with a 12px gap, so "//" and "001" rendered as "//  001".
+   Reference is tight "//001"; the gap belongs between the number and the leader. */
+.faq-q .n { gap: 0; }
+.faq-q .n::after { margin-left: 12px; }
+
+/* ---------- pricing: price line ---------- */
+.price-card .amount .per { white-space: nowrap; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1080px) {
+  /* 01 key value: on stacked cards the tag sat directly under the body copy */
+  .value-card .tag { margin-top: 24px; }
+}
+@media (max-width: 720px) {
+  /* hero: the pixel word wrapped and the cursor block floated at the right edge.
+     Inline cursor that follows the last glyph, and a size at which the longest
+     word ("[Claude Code]") fits on one line in the 342px column. */
+  .hero-top .h1 .pixel-line { display: inline; font-size: 40px; line-height: 1.2; }
+  .hero-top .h1 .cursor { height: 36px; width: 14px; vertical-align: -4px; margin-left: 4px; }
+  /* hero: the trust row wrapped with the separator orphaned at the line end */
+  .trust .sep { display: none; }
+  .trust .count { flex-basis: 100%; }
+  /* 02 the corpus: legend chips wrapped, nine axis labels crowded 342px.
+     The legend is centred at 10/11 of the chart width, so on a 342px chart its
+     right half hung outside the viewport (the page scrolled sideways to 429px).
+     Pinned to the chart's right edge instead, still beside the split. */
+  .chart .legend { font-size: 11px; gap: 4px; left: auto; right: 0; transform: translateY(-50%); }
+  .chart .axis { font-size: 13px; }
+  .chart .axis span:nth-child(even) { display: none; }
+  .stats > div:nth-child(3) .n { font-size: 24px; }
+  /* pricing: "/seat /month" wrapped beside the price */
+  .price-card .amount .n { font-size: 52px; }
+  .price-card .amount .per { font-size: 16px; }
+  /* 03 core layers: keep the signals row in flow on the stacked diagram */
+  .signals { top: auto; }
+}
