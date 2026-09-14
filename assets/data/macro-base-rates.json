@@ -1,0 +1,136 @@
+{
+ "as_of": "2026-09-11",
+ "subject": "Nifty 50",
+ "kinds": [
+  {
+   "kind": "india_cpi",
+   "label": "India CPI",
+   "n": 80,
+   "d1": 0.22,
+   "d3": 0.16,
+   "d10": 0.06,
+   "hit1": 0.57,
+   "hit3": 0.54
+  },
+  {
+   "kind": "india_wpi",
+   "label": "India WPI",
+   "n": 79,
+   "d1": 0.44,
+   "d3": 0.21,
+   "d10": 0.41,
+   "hit1": 0.65,
+   "hit3": 0.53
+  },
+  {
+   "kind": "crude_opec",
+   "label": "OPEC",
+   "n": 60,
+   "d1": 0.19,
+   "d3": 0.94,
+   "d10": 1.43,
+   "hit1": 0.58,
+   "hit3": 0.7
+  },
+  {
+   "kind": "us_cpi",
+   "label": "US CPI",
+   "n": 55,
+   "d1": 0.24,
+   "d3": 0.13,
+   "d10": 0.1,
+   "hit1": 0.53,
+   "hit3": 0.51
+  },
+  {
+   "kind": "fomc",
+   "label": "FOMC",
+   "n": 50,
+   "d1": -0.3,
+   "d3": -0.26,
+   "d10": 0.04,
+   "hit1": 0.36,
+   "hit3": 0.48
+  },
+  {
+   "kind": "rbi_mpc",
+   "label": "RBI MPC",
+   "n": 44,
+   "d1": 0.34,
+   "d3": 0.14,
+   "d10": 0.96,
+   "hit1": 0.59,
+   "hit3": 0.52
+  },
+  {
+   "kind": "india_gdp",
+   "label": "India GDP",
+   "n": 22,
+   "d1": 0.14,
+   "d3": 0.59,
+   "d10": 1.21,
+   "hit1": 0.55,
+   "hit3": 0.64
+  },
+  {
+   "kind": "us_tariffs",
+   "label": "US tariffs",
+   "n": 21,
+   "d1": -0.45,
+   "d3": -0.21,
+   "d10": 1.02,
+   "hit1": 0.38,
+   "hit3": 0.43
+  },
+  {
+   "kind": "us_jobs",
+   "label": "US jobs",
+   "n": 15,
+   "d1": 0.34,
+   "d3": 0.49,
+   "d10": 1.45,
+   "hit1": 0.53,
+   "hit3": 0.64
+  },
+  {
+   "kind": "gst_council",
+   "label": "GST Council",
+   "n": 10,
+   "d1": 0.39,
+   "d3": 1.18,
+   "d10": 2.29,
+   "hit1": 0.7,
+   "hit3": 0.8
+  },
+  {
+   "kind": "election_result",
+   "label": "Election",
+   "n": 9,
+   "d1": 0.15,
+   "d3": 0.69,
+   "d10": 2.97,
+   "hit1": 0.56,
+   "hit3": 0.89
+  },
+  {
+   "kind": "union_budget",
+   "label": "Budget",
+   "n": 8,
+   "d1": -0.34,
+   "d3": 1.08,
+   "d10": 0.76,
+   "hit1": 0.38,
+   "hit3": 1.0
+  },
+  {
+   "kind": "us_gdp",
+   "label": "US GDP",
+   "n": 7,
+   "d1": -0.52,
+   "d3": 0.04,
+   "d10": 0.96,
+   "hit1": 0.43,
+   "hit3": 0.57
+  }
+ ]
+}

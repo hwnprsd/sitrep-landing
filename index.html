@@ -158,10 +158,12 @@
         <div><div class="n">43 + GDELT</div><div class="l">News feeds, titles to 2015</div></div>
       </div>
     </div>
+    <div class="chart-cap">
+      <span class="mono-12">[Macro base rates] Nifty 50 median return after 460 release days, by kind</span>
+      <span class="chart-key"><i class="k1"></i>Day +1<i class="k3"></i>Day +3<i class="k10"></i>Day +10</span>
+    </div>
     <div class="chart reveal" id="chart">
-      <svg id="chartSvg" preserveAspectRatio="none"></svg>
-      <div class="legend"><span>Titles only &lt;</span><i></i><span>&gt; Full text</span></div>
-      <div class="axis"><span>2015</span><span>2016</span><span>2017</span><span>2018</span><span>2019</span><span>2020</span><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span></div>
+      <svg id="chartSvg"></svg>
     </div>
   </div>
 </section>
@@ -193,42 +195,29 @@
       </div>
       <div class="cap-right">
         <div class="dots"></div>
-        <div class="diagram">
-          <div class="col">
-            <div class="cap">Inputs</div>
-            <ul>
-              <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 1.5h6l3 3v10h-9z"/><path d="M9.5 1.5v3h3M6 8.5h4M6 11.5h4"/></svg>Filings</li>
-              <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5h11M2.5 8.5h11M2.5 12.5h7"/></svg>News</li>
-              <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12.5l4-5 3 3 4-5"/><path d="M10 5.5h3.5V9"/></svg>Prices</li>
-              <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="11" height="9"/><path d="M2.5 6.5h11M2.5 9.5h11M7.5 6.5v6"/></svg>Positions</li>
-            </ul>
+        <div class="deskpanel" aria-label="A Sitrep lookup, as the desk sees it">
+          <div class="dp-bar"><span><i>1</i> What happened next <em>after similar news</em></span><span>20 items · 20 measured</span></div>
+          <div class="dp-query">Tata Motors JLR wholesale volumes fall 11% in Q2</div>
+          <div class="dp-chips"><span>TMPV</span><span>Automobile and Auto Components</span><span>Press Release / Media Release</span><span>5 years</span></div>
+          <p class="dp-sum">After the <b>20</b> similar past items (10 of TMPV's own, 10 from Automobile peers), the stock's abnormal return was a median <b class="dn">-1.0%</b> by day 3 (<b>30%</b> were up) and <b class="dn">-1.8%</b> by day 10. Over the same 3 days the sector did <b class="up">+0.2%</b> and the market <b class="dn">-0.1%</b>.</p>
+          <div class="dp-stats">
+            <div><span>Similar items</span><b>20</b><small>all 20 measured</small></div>
+            <div><span>Stock, day 3</span><b class="dn">-1.0%</b><small>p25 -2.4% · p75 +0.8%</small></div>
+            <div><span>Stock, day 10</span><b class="dn">-1.8%</b><small>p25 -4.9% · p75 +0.9%</small></div>
+            <div><span>vs expected, day 1</span><b>0.8×</b><small>|move| over implied</small></div>
           </div>
-          <div class="core">
-            <span class="h l"></span><span class="h r"></span>
-            <div class="mark"><img src="assets/logo/mark-on-dark.svg" alt=""></div>
-            <div class="wire"></div>
-          </div>
-          <div class="col">
-            <div class="cap">Contexts</div>
-            <ul>
-              <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="5.5" r="2.5"/><path d="M3 14c0-3 2-4.5 5-4.5s5 1.5 5 4.5"/></svg>Company</li>
-              <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><circle cx="8" cy="8" r="2.5"/><path d="M8 2.5v2M8 11.5v2M2.5 8h2M11.5 8h2"/></svg>Event class</li>
-              <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 5.5H4.5a2.5 2.5 0 000 5h2M9.5 5.5h2a2.5 2.5 0 010 5h-2M5.5 8h5"/></svg>Sector</li>
-              <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12A5.5 5.5 0 0113.5 12"/><path d="M8 12l2.5-4"/><path d="M2.5 12h11"/></svg>Regime</li>
-            </ul>
-          </div>
-        </div>
-        <div class="signals">
-          <div class="cap">Outputs</div>
-          <div class="row">
-            <i></i>
-            <span title="Precedent list"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5h13v3h-13zM2.5 7.5h8v3h-8zM2.5 11.5h11v3h-11z"/></svg></span>
-            <i class="sm"></i>
-            <span title="Cited writeup"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2.5L15.5 9 9 15.5 2.5 9z"/><path d="M9 6v6M6 9h6"/></svg></span>
-            <i class="sm"></i>
-            <span title="Watch"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 13.5h11l-1.5-2.5V8a4 4 0 00-8 0v3z"/><path d="M7.5 15.5a1.5 1.5 0 003 0"/></svg></span>
-            <i></i>
-          </div>
+          <div class="dp-bar dp-bar--sub"><span><i>4</i> Precedents <em>TMPV's own past news</em></span><span>newest first</span></div>
+          <table class="dp-table">
+            <thead><tr><th>Date</th><th>Headline</th><th>D1</th><th>D3</th><th>D5</th><th>D10</th></tr></thead>
+            <tbody>
+              <tr><td>2026-01-06</td><td>Shares fall 4% after muted Q3 JLR update</td><td class="dn">-1.5%</td><td class="dn">-0.9%</td><td class="dn">-1.8%</td><td class="up">+0.1%</td></tr>
+              <tr><td>2025-10-07</td><td>JLR posts quarterly volume drop after cyber incident</td><td class="dn">-2.6%</td><td class="dn">-5.7%</td><td class="dn">-47.3%</td><td class="dn">-46.1%</td></tr>
+              <tr><td>2025-07-08</td><td>Group global wholesales decline 9% in Q1 FY26</td><td class="up">+1.7%</td><td class="up">+0.7%</td><td class="up">+0.8%</td><td class="up">+3.2%</td></tr>
+              <tr><td>2025-04-08</td><td>Global sales slip 3% in Q4 FY25</td><td class="dn">-0.4%</td><td class="up">+1.5%</td><td class="dn">-1.0%</td><td class="up">+4.3%</td></tr>
+              <tr><td>2024-10-08</td><td>Slides as Q2 global wholesales drop 11% YoY</td><td class="up">+0.8%</td><td class="dn">-0.1%</td><td class="dn">-1.8%</td><td class="dn">-2.9%</td></tr>
+            </tbody>
+          </table>
+          <div class="dp-foot"><span>Abnormal return over what the market explains</span><span>as of 2026-09-11</span></div>
         </div>
       </div>
     </div>
@@ -400,7 +389,14 @@ curl -s https://api.sitrep.so/v1/precedents \
             <span class="idx"><i>//</i>001</span>
           </div>
           <div class="preview dots">
-            <img class="shot" src="assets/ui/lookup-summary.png" alt="Sitrep lookup: what happened after 20 similar past items, with the median, the range and the hit rate" loading="lazy">
+            <div class="mini">
+              <div class="mini-head"><span>Base rate</span><span>44,514 events</span></div>
+              <div class="mini-row"><span>Class</span><b>Press Release / Media Release</b></div>
+              <div class="mini-row"><span>Median, day 1</span><b>-0.10%</b></div>
+              <div class="mini-row"><span>Middle half, day 1</span><b>-2.2% to +2.1%</b></div>
+              <div class="mini-row"><span>Up by day 3</span><b>48%</b></div>
+              <div class="mini-row"><span>Beyond one expected move</span><b>45% of 16,611</b></div>
+            </div>
           </div>
           <div class="foot"><span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>View</span></div>
         </a>
@@ -411,7 +407,14 @@ curl -s https://api.sitrep.so/v1/precedents \
             <span class="idx"><i>//</i>002</span>
           </div>
           <div class="preview dots">
-            <img class="shot shot--paper" src="assets/ui/whitepaper.png" alt="The Sitrep whitepaper, page one" loading="lazy">
+            <div class="mini">
+              <div class="mini-head"><span>Whitepaper</span><span>research.sitrep.so</span></div>
+              <div class="mini-row"><span>01</span><b>Method: measurement, precedents, grading</b></div>
+              <div class="mini-row"><span>02</span><b>Corpus: 150,045 filings, 43 feeds, 460 macro days</b></div>
+              <div class="mini-row"><span>03</span><b>Findings: boilerplate, macro, cashflow</b></div>
+              <div class="mini-row"><span>04</span><b>The seven invariants</b></div>
+              <div class="mini-row"><span>05</span><b>What we got wrong, dated</b></div>
+            </div>
           </div>
           <div class="foot"><span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>View</span></div>
         </a>
@@ -592,7 +595,7 @@ curl -s https://api.sitrep.so/v1/precedents \
           <p class="body">Every BSE filing opens with the same covering letter: addressees, scrip code, Regulation 30, sign-off. We stripped it, re-embedded the filings and re-judged the company list. 59.3% relevant before, 64.0% after.</p>
           <span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>Read more</span>
         </div>
-        <div class="img"><div class="grid-bg"></div><img class="shot shot--a" src="assets/ui/lookup-summary.png" alt="Sitrep lookup summary: median move, range and hit rate after 20 similar past items" loading="lazy"><img class="shot shot--b" src="assets/ui/lookup-table.png" alt="Sitrep precedents table: past news for Tata Motors with what the stock, sector and market did after each" loading="lazy"></div>
+        <div class="img"><div class="grid-bg"></div></div>
       </a>
       <div>
         <a class="post post--small reveal" href="https://research.sitrep.so" target="_blank" rel="noopener">
@@ -601,7 +604,7 @@ curl -s https://api.sitrep.so/v1/precedents \
             <h3 class="h4">460 macro events and the Nifty's path after each</h3>
             <span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>Read more</span>
           </div>
-          <div class="img"><div class="grid-bg"></div><img class="shot" src="assets/ui/macro-kinds.png" alt="Sitrep macro mode: 13 release kinds held in the store" loading="lazy"></div>
+          <div class="img"><div class="grid-bg"></div></div>
         </a>
         <a class="post post--small reveal" href="https://research.sitrep.so" target="_blank" rel="noopener">
           <div class="txt">
@@ -609,7 +612,7 @@ curl -s https://api.sitrep.so/v1/precedents \
             <h3 class="h4">Cashflow events, sized against the company</h3>
             <span class="link-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12L12 2M5 2h7v7"/></svg>Read more</span>
           </div>
-          <div class="img"><div class="grid-bg"></div><img class="shot" src="assets/ui/lookup-baserate.png" alt="Sitrep base rate: every past event of this class, 44,514 of them" loading="lazy"></div>
+          <div class="img"><div class="grid-bg"></div></div>
         </a>
       </div>
     </div>

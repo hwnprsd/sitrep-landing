@@ -161,29 +161,33 @@
     });
   })();
 
-  /* ---------- chart: before/after bars ---------- */
+  /* ---------- chart: Nifty 50 median return after macro release days (from the API, as of 2026-09-11) ---------- */
   (function chart() {
     const svg = $('#chartSvg'); if (!svg) return;
-    const W = 1200, H = 420, n = 200, bw = W / n;
-    let seed = 7; const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+    const K = [{"kind": "india_cpi", "label": "India CPI", "n": 80, "d1": 0.22, "d3": 0.16, "d10": 0.06, "hit1": 0.57, "hit3": 0.54}, {"kind": "india_wpi", "label": "India WPI", "n": 79, "d1": 0.44, "d3": 0.21, "d10": 0.41, "hit1": 0.65, "hit3": 0.53}, {"kind": "crude_opec", "label": "OPEC", "n": 60, "d1": 0.19, "d3": 0.94, "d10": 1.43, "hit1": 0.58, "hit3": 0.7}, {"kind": "us_cpi", "label": "US CPI", "n": 55, "d1": 0.24, "d3": 0.13, "d10": 0.1, "hit1": 0.53, "hit3": 0.51}, {"kind": "fomc", "label": "FOMC", "n": 50, "d1": -0.3, "d3": -0.26, "d10": 0.04, "hit1": 0.36, "hit3": 0.48}, {"kind": "rbi_mpc", "label": "RBI MPC", "n": 44, "d1": 0.34, "d3": 0.14, "d10": 0.96, "hit1": 0.59, "hit3": 0.52}, {"kind": "india_gdp", "label": "India GDP", "n": 22, "d1": 0.14, "d3": 0.59, "d10": 1.21, "hit1": 0.55, "hit3": 0.64}, {"kind": "us_tariffs", "label": "US tariffs", "n": 21, "d1": -0.45, "d3": -0.21, "d10": 1.02, "hit1": 0.38, "hit3": 0.43}, {"kind": "us_jobs", "label": "US jobs", "n": 15, "d1": 0.34, "d3": 0.49, "d10": 1.45, "hit1": 0.53, "hit3": 0.64}, {"kind": "gst_council", "label": "GST Council", "n": 10, "d1": 0.39, "d3": 1.18, "d10": 2.29, "hit1": 0.7, "hit3": 0.8}, {"kind": "election_result", "label": "Election", "n": 9, "d1": 0.15, "d3": 0.69, "d10": 2.97, "hit1": 0.56, "hit3": 0.89}, {"kind": "union_budget", "label": "Budget", "n": 8, "d1": -0.34, "d3": 1.08, "d10": 0.76, "hit1": 0.38, "hit3": 1.0}, {"kind": "us_gdp", "label": "US GDP", "n": 7, "d1": -0.52, "d3": 0.04, "d10": 0.96, "hit1": 0.43, "hit3": 0.57}];
+    const W = 1200, H = 420, padL = 44, padR = 8, padT = 12, padB = 62;
+    const plotW = W - padL - padR, plotH = H - padT - padB;
+    const yMin = -1, yMax = 3;
+    const y = v => padT + (yMax - v) / (yMax - yMin) * plotH;
+    const g = plotW / K.length, bw = Math.min(18, g / 4), gap = 3;
+    const mono = "font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:-0.02em";
     let out = '';
-    // vertical guides every 100
-    for (let g = 0; g <= 11; g++) out += `<line x1="${g * W / 11}" y1="0" x2="${g * W / 11}" y2="${H}" stroke="#E1D4C1" stroke-dasharray="2 3"/>`;
-    for (let i = 0; i < n; i++) {
-      const x = i * bw + 1;
-      const t = i / n;
-      let h, fill;
-      if (t < 10 / 11) {
-        const env = 0.25 + 0.25 * Math.sin(t * 12) * Math.sin(t * 5 + 1) + 0.1 * rnd();
-        h = Math.max(4, env * 0.55 * H); fill = '#E9DAC6';
-      } else {
-        const env = 0.82 + 0.12 * Math.sin(t * 20) + 0.05 * rnd();
-        h = env * H; fill = '#0151AF';
-      }
-      out += `<rect x="${x}" y="${H - h}" width="${bw - 2}" height="${h}" fill="${fill}"/>`;
+    for (let v = yMin; v <= yMax; v++) {
+      out += `<line x1="${padL}" y1="${y(v)}" x2="${W - padR}" y2="${y(v)}" stroke="${v === 0 ? '#1A1A1A' : '#E1D4C1'}" stroke-width="${v === 0 ? 1 : 1}" ${v === 0 ? '' : 'stroke-dasharray="2 3"'}/>`;
+      out += `<text x="${padL - 8}" y="${y(v) + 4}" text-anchor="end" fill="#7A7A7A" style="${mono}">${v > 0 ? '+' : ''}${v}%</text>`;
     }
-    out += `<line x1="${W * 10 / 11}" y1="0" x2="${W * 10 / 11}" y2="${H}" stroke="#0151AF" stroke-dasharray="3 3"/>`;
-    out += `<line x1="0" y1="${H}" x2="${W}" y2="${H}" stroke="#E1D4C1"/>`;
+    K.forEach((k, i) => {
+      const cx = padL + g * i + g / 2;
+      const bars = [[k.d1, '#ADADAD'], [k.d3, '#7C9CCB'], [k.d10, '#0151AF']];
+      bars.forEach(([v, fill], j) => {
+        const x = cx - (1.5 * bw + gap) + j * (bw + gap);
+        const y0 = y(0), y1 = y(v);
+        out += `<rect x="${x}" y="${Math.min(y0, y1)}" width="${bw}" height="${Math.max(1, Math.abs(y1 - y0))}" fill="${fill}"/>`;
+      });
+      out += `<text x="${cx}" y="${H - padB + 18}" text-anchor="middle" fill="#1A1A1A" style="${mono}">${k.label}</text>`;
+      out += `<text x="${cx}" y="${H - padB + 33}" text-anchor="middle" fill="#7A7A7A" style="${mono};font-size:10px">n ${k.n}</text>`;
+      out += `<text x="${cx}" y="${H - padB + 47}" text-anchor="middle" fill="#ADADAD" style="${mono};font-size:10px">${Math.round(k.hit3 * 100)}% up by d3</text>`;
+    });
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     svg.innerHTML = out;
   })();
