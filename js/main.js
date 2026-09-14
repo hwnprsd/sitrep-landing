@@ -4,21 +4,35 @@
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- preloader: pixel grid that clears cell by cell ---------- */
+  /* ---------- preloader: pixel dissolve that sweeps from the top-left ---------- */
   (function preloader() {
     const el = $('#preloader');
     if (!el) return;
     if (reduce) { el.remove(); return; }
-    const cell = 96;
-    const cols = Math.ceil(window.innerWidth / cell), rows = Math.ceil(window.innerHeight / cell);
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const cell = vw < 720 ? 40 : vw < 1200 ? 64 : 96;
+    const cols = Math.ceil(vw / cell), rows = Math.ceil(vh / cell);
     el.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
     el.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
     const cells = [];
-    for (let i = 0; i < cols * rows; i++) { const s = document.createElement('span'); el.appendChild(s); cells.push(s); }
+    const frag = document.createDocumentFragment();
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+      const s = document.createElement('span');
+      // sweep diagonal with jitter, normalised 0..1
+      s._t = ((r + c) / (rows + cols)) * 0.7 + Math.random() * 0.3;
+      frag.appendChild(s); cells.push(s);
+    }
+    el.appendChild(frag);
     document.body.classList.add('is-locked');
-    cells.sort(() => Math.random() - 0.5);
-    cells.forEach((s, i) => setTimeout(() => s.classList.add('is-out'), 120 + i * (700 / cells.length)));
-    setTimeout(() => { el.remove(); document.body.classList.remove('is-locked'); }, 1100);
+    const total = 650, delay = 120;
+    const t0 = performance.now() + delay;
+    function tick(now) {
+      const p = (now - t0) / total;
+      for (const s of cells) if (!s._gone && s._t <= p) { s._gone = true; s.style.visibility = 'hidden'; }
+      if (p < 1) requestAnimationFrame(tick);
+      else { el.remove(); document.body.classList.remove('is-locked'); }
+    }
+    requestAnimationFrame(tick);
   })();
 
   /* ---------- nav ---------- */

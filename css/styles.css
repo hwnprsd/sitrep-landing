@@ -123,8 +123,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- preloader ---------- */
 .preloader { position: fixed; inset: 0; z-index: 100; display: grid; pointer-events: none; }
-.preloader span { background: var(--ink); transition: opacity .35s ease; }
-.preloader span.is-out { opacity: 0; }
+.preloader span { background: var(--ink); }
 
 /* ---------- nav ---------- */
 .nav {
